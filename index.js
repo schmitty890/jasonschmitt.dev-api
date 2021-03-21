@@ -55,7 +55,7 @@ app.post("/test", (req, res) => {
       from: `${req.body.yourEmail}`, // sender address
       to: process.env.GMAILEMAIL, // list of receivers
       subject: "Portfolio email", // Subject line
-      text: `A message from ${req.body.yourName}!  ${req.body.yourMessage}`, // plain text body
+      text: `A message from ${req.body.yourName} at ${req.body.yourEmail}!  ${req.body.yourMessage}`, // plain text body
     });
 
     console.log("Message sent: %s", info.messageId);
