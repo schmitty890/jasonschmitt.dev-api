@@ -21,7 +21,6 @@ const PORT = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8081;
 
 // enable cors
 app.use(cors());
-console.log("cors enabled");
 
 // mongoose connection
 mongoose.Promise = global.Promise;
