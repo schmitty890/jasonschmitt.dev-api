@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import emailRoutes from "./src/routes/emailRoutes";
+import spotifyRoutes from "./src/routes/spotifyRoutes";
 import routes from "./src/routes/crmRoutes";
 // import testRoutes from "./src/routes/testRoutes";
 // import budgetRoutes from "./src/routes/budgetRoutes";
@@ -8,6 +9,9 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import jsonwebtoken from "jsonwebtoken";
+var cron = require("node-cron");
+// import { getCurrentSong } from "./src/routes/spotifyRoutes";
+import { getCurrentSong } from "./src/controllers/spotifyController";
 
 const app = express();
 
@@ -17,6 +21,7 @@ const PORT = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8081;
 
 // enable cors
 app.use(cors());
+console.log("cors enabled");
 
 // mongoose connection
 mongoose.Promise = global.Promise;
@@ -57,6 +62,18 @@ app.use((req, res, next) => {
 
 routes(app);
 emailRoutes(app);
+spotifyRoutes(app);
+
+// cron.schedule("* * * * *", () => {
+//   console.log("running a task every minute");
+//   // console.log(getCurrentSong());
+//   const one = 1;
+//   const two = 2;
+//   console.log(one + two);
+//   // console.log(getCurrentSong());
+//   getCurrentSong();
+// });
+
 // budgetRoutes(app);
 // testRoutes(app);
 
