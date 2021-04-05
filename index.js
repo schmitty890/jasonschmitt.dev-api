@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import emailRoutes from "./src/routes/emailRoutes";
 import spotifyRoutes from "./src/routes/spotifyRoutes";
 import playlistRoutes from "./src/projects/playlist/routes/playlistRoutes";
+import hockeyRoutes from "./src/projects/hockey/routes/hockeyRoutes";
 import routes from "./src/routes/crmRoutes";
 // import testRoutes from "./src/routes/testRoutes";
 // import budgetRoutes from "./src/routes/budgetRoutes";
@@ -65,6 +66,7 @@ emailRoutes(app);
 spotifyRoutes(app);
 
 playlistRoutes(app);
+hockeyRoutes(app);
 
 // cron.schedule("* * * * *", () => {
 //   console.log("running a task every minute");

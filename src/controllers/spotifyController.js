@@ -133,7 +133,7 @@ export const callback = (req, res) => {
 };
 
 export const getCurrentToken = (req, res) => {
-  console.log("getCurrentToken");
+  // console.log("getCurrentToken");
   CurrentToken.find({}, (err, token) => {
     if (err) {
       res.send(err);
